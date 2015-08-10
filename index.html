@@ -1,6 +1,7 @@
 ---
 layout: page
 description: "Easy Small Business Automation and Productivity"
+excerpt_separator: <!--more-->
 ---
 
 {% for post in paginator.posts %}
@@ -15,6 +16,7 @@ description: "Easy Small Business Automation and Productivity"
         {% endif %}
     </a>
     <p class="post-meta">Posted by {% if post.author %}{{ post.author }}{% else %}{{ site.title }}{% endif %} on {{ post.date | date: "%B %-d, %Y" }}</p>
+    {{ post.excerpt }}
 </div>
 <hr>
 {% endfor %}
