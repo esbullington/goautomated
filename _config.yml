@@ -3,10 +3,6 @@ source:      .
 destination: ./_site
 plugins_dir:     ./_plugins
 data_source_dir: ./_data
-collections:
-  themes:
-    output: true
-    permalink: /themes/:path/
 
 # Handling Reading
 safe:         false
