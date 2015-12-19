@@ -10,9 +10,10 @@
 	.navigation-primary-inner-wrapper {
 		height: 100%;
 		img {
+			position: relative;
 			float: left;
-			display: inline-block;
-			margin: 14px 10px;
+			@extend %vertical-align;
+			margin-right: 10px;
 		}
 		h1 {
 			float: left;
