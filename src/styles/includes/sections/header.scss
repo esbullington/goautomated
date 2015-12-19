@@ -1,13 +1,28 @@
 
 .section-header {
-	background-image: url('../img/backgrounds/default/banner.jpg');
+	background-image: url('../img/backgrounds/retina/blueprint.jpg');
 	height: calc(100vh - 60px);
 	color: $white;
 	p {
 		color: $white;
 	}
-	margin-bottom: 3em;
-	img {
-		margin-bottom: 2em;
+	.frontpage-inner-wrapper {
+	}
+	header {
+		margin-top: 100px;
+		text-align: center;
+		h1 {
+			font-size: 500%;
+		}
+		p, span {
+			font-size: 200%;
+		}
+	}
+	.learn-more {
+		display: inline-block;
+		margin-top: 40px;
+		border: 2px solid $white;
+		padding: 10px;
+		cursor: pointer;
 	}
 }

@@ -1,7 +1,14 @@
 
 .section-intro {
+	.frontpage-inner-wrapper {
+		text-align: center;
+	}
+	h2 {
+	}
 	p {
+		display: inline-block;
 		color: $medium-gray;
+		width: 80%;
 	}
 	margin-bottom: 3em;
 	img {

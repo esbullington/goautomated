@@ -136,8 +136,8 @@ gulp.task('srcset', (cb) => {
   // specifying the folder name, the ouput dimensions and
   // whether or not to crop the images
   const images = [
-      { dir: 'default', width: 1920, height: 1800, crop: true },
-      { dir: 'retina', width: 2880, height: 1800, crop: true },
+      { dir: 'default', width: 1920, height: 1800, crop: false, filter: 'Catrom' },
+      { dir: 'retina', width: 2880, height: 1800, crop: false, filter: 'Catrom' },
       { dir: 'thumbnail', width: 260, crop: false, filter: 'Catrom' }
   ];
   images.forEach( (type) => {
@@ -157,12 +157,12 @@ gulp.task('srcset', (cb) => {
     .pipe(imagemin({
         progressive: true,
         // set this if you are using svg images
-        svgoPlugins: [{removeViewBox: false}],
-        use: [pngquant()]
+        svgoPlugins: [{removeViewBox: false}]
+        // use: [pngquant()]
     }))
     .pipe(chmod(664))
     .pipe(gulp.dest('_site/' + paths.dest+'/img/backgrounds/'+type.dir))
-		.pipe(browserSync.reload({stream:true}))
+		.pipe(browserSync.reload({stream: true}))
     .pipe(gulp.dest(paths.dest+'/img/backgrounds/'+type.dir));
   });
   cb();
@@ -186,7 +186,7 @@ gulp.task('browser-sync', ['sass', 'scripts', 'images', 'srcset', 'jekyll:rebuil
  */
 gulp.task('watch', ['browser-sync'], function () {
 	gulp.watch(paths.src + '/images/*', ['images']);
-	gulp.watch(paths.src + '/images/background/*', ['srcset']);
+	gulp.watch(paths.src + '/images/backgrounds/*', ['srcset']);
 	gulp.watch(paths.src + '/styles/**/*.scss', ['sass']);
 	gulp.watch(paths.src + '/scripts/**/*.js', ['scripts']);
 	gulp.watch(['*.{md,html}', 'blog/**/*', '_data/**/*', '_layouts/**/*.html', '_includes/**/*.{html,md}', '_posts/**/*.{html,md}', '_pages/**/*.{html,md}'], ['jekyll:rebuild']);

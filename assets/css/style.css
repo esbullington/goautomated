@@ -604,19 +604,33 @@ main.default section {
   margin-top: 15px; }
 
 .section-header {
-  background-image: url("../img/backgrounds/default/banner.jpg");
+  background-image: url("../img/backgrounds/retina/blueprint.jpg");
   height: calc(100vh - 60px);
-  color: #FFFFF8;
-  margin-bottom: 3em; }
+  color: #FFFFF8; }
   .section-header p {
     color: #FFFFF8; }
-  .section-header img {
-    margin-bottom: 2em; }
+  .section-header header {
+    margin-top: 100px;
+    text-align: center; }
+    .section-header header h1 {
+      font-size: 500%; }
+    .section-header header p, .section-header header span {
+      font-size: 200%; }
+  .section-header .learn-more {
+    display: inline-block;
+    margin-top: 40px;
+    border: 2px solid #FFFFF8;
+    padding: 10px;
+    cursor: pointer; }
 
 .section-intro {
   margin-bottom: 3em; }
+  .section-intro .frontpage-inner-wrapper {
+    text-align: center; }
   .section-intro p {
-    color: #777777; }
+    display: inline-block;
+    color: #777777;
+    width: 80%; }
   .section-intro img {
     margin-bottom: 2em; }
 
@@ -695,9 +709,6 @@ main.default section {
     min-height: 135px;
     margin: 0; }
 
-.section-features {
-  margin-top: 4em; }
-
 .section-cta, .cta-description {
   color: #FFFFF8; }
 
@@ -742,33 +753,13 @@ main.default h1, main.default h2, main.default h3 {
 #mc_embed_signup {
   clear: left; }
 
-.frontpage-inner-wrapper article {
-  float: left;
-  display: block;
-  margin-right: 2.12766%;
-  width: 65.95745%; }
-  .frontpage-inner-wrapper article:last-child {
-    margin-right: 0; }
-
-.frontpage-inner-wrapper aside {
-  float: left;
-  display: block;
-  margin-right: 2.12766%;
-  width: 31.91489%; }
-  .frontpage-inner-wrapper aside header {
-    text-align: left; }
-  .frontpage-inner-wrapper aside:last-child {
-    margin-right: 0; }
-
 .frontpage-inner-wrapper h1, .frontpage-inner-wrapper h2, .frontpage-inner-wrapper h3 {
   text-align: center; }
 
-.section-features li:before, .section-html5 li:before {
-  font-family: 'Ionicons';
-  content: "";
-  margin: 0 8px 0 0; }
+main.default section {
+  margin-bottom: 80px; }
 
-hr:after {
+main.default hr:after {
   height: 2px;
   margin: 4em 0;
   background: #777777;
@@ -776,6 +767,11 @@ hr:after {
   background: linear-gradient(to right, transparent 0%, rgba(0, 0, 0, 0.09) 35%, rgba(0, 0, 0, 0.09) 70%, transparent 100%);
   content: "";
   width: 100%; }
+
+.section-features li:before, .section-html5 li:before {
+  font-family: 'Ionicons';
+  content: "";
+  margin: 0 8px 0 0; }
 
 .blog main.default {
   text-align: center; }
