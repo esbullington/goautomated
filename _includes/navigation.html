@@ -1,0 +1,32 @@
+<nav class="navigation-primary">
+	<div class="navigation-primary-inner-wrapper">
+		<img src="{{site.url | append: site.baseurl}}/assets/images/logo.png" />
+		<h1 class="brand">
+			<a href="/">{{ site.data.global.title }}</a>
+		</h1>
+		<label id="menu-toggle-label" onclick="" for="menu-toggle">
+			<i class="hamburger-icon"></i>
+		</label>
+		<input type="checkbox" id="menu-toggle"/> 
+
+		<ul class="menu social-media-menu">
+			{% for item in site.data.nav.social %}
+			<li>
+				<a href="{{ item.url }}"><span>{{ item.text }}</span></a>
+			</li>
+			{% endfor %}
+		</ul>
+
+		<ul class="menu navigation-menu">
+			{% assign pages = site.pages | sort:"weight"  %}
+			{% for p in pages %}
+				{% if p.menus contains 'primary' %}
+				<li {% if p.url == page.url %}class="active"{% endif %}>
+					<a href="{{ p.url }}">{{ p.title }}</a>
+				</li>
+				{% endif %}
+			{% endfor %}
+		</ul>
+
+	</div>
+</nav>

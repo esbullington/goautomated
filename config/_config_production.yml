@@ -1,0 +1,5 @@
+# Serving
+port:    400
+host:    "www.palmettothemes.com" 
+baseurl: "" # if add subdirectory, be sure to add trailing slash: /blog/
+url: "https://www.palmettothemes.com"

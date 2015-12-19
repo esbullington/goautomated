@@ -1,0 +1,24 @@
+<!doctype html>
+<!--[if IE 8 ]>   <html itemscope itemtype="http://schema.org/{% if page.id or post.id %}Article{% else %}Organization{% endif %}" id="ie8" class="ie ie-old" lang="en-US"><![endif]-->
+<!--[if IE 9 ]>   <html itemscope itemtype="http://schema.org/{% if page.id or post.id %}Article{% else %}Organization{% endif %}" id="ie9" class="ie" lang="en-US"><![endif]-->
+<html itemscope itemtype="http://schema.org/{% if page.id or post.id %}Article{% else %}Organization{% endif %}" lang="en-US">
+
+<head>
+	{% include head.html %}
+</head>
+
+<body class="{{ page.title | downcase | replace:' ','-' | replace:',','' | strip_html }}{% if page.category %} category-{{ page.category }}{% endif %}{% if page.layout %} layout-{{ page.layout }}{% endif %}">
+
+	{% include navigation.html %}
+	{% include header.html %}
+
+	<main class="default">
+		{{ content }}
+	</main>
+
+		
+	{% include footer.html %}
+
+</body>
+
+</html>

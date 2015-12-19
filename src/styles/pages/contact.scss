@@ -1,0 +1,28 @@
+
+
+.contact form {
+	input[type=text], input[type=email], textarea {
+		border-color: $medium-gray;
+	}
+	input[type=submit] {
+		@extend %horizontal-align;
+	}
+}
+
+.contact .inner-wrapper p {
+	@include span-columns(8 of 12);
+	@include shift(2 of 12);
+}
+
+
+#contactForm {
+	@include outer-container;
+	.row, .contact-submit-button {
+		@include span-columns(8 of 12);
+		@include shift(2 of 12);
+	}
+}
+
+#onsubmitMessage {
+	margin-top: 15px;
+}

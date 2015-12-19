@@ -1,0 +1,27 @@
+
+%frontpage-heading {
+	font-weight: bold;
+}
+
+
+#mc_embed_signup{
+	clear:left;
+}
+
+.frontpage-inner-wrapper {
+	article {
+		@include span-columns(8 of 12);
+	}
+	aside {
+		header {
+			text-align: left;
+		}
+		@include span-columns(4 of 12);
+	}
+	h1, h2, h3 {
+		text-align: center;
+		&:after {
+			@include header-separator();
+		}
+	}
+}

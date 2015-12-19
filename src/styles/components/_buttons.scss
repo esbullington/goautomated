@@ -1,0 +1,81 @@
+
+.content {
+  input[type="button"],
+  input[type="reset"],
+  input[type="submit"],
+  button:not(.cta-buttontext) {
+    appearance: none;
+    background-color: $action-color;
+    border: 0;
+    border-radius: $base-border-radius;
+    color: #fff;
+    cursor: pointer;
+    display: inline-block;
+    font-family: $base-font-family;
+    font-size: $base-font-size;
+    -webkit-font-smoothing: antialiased;
+    font-weight: 600;
+    line-height: 1;
+    padding: $small-spacing $base-spacing;
+    text-decoration: none;
+    transition: background-color $base-duration $base-timing;
+    user-select: none;
+    vertical-align: middle;
+    white-space: nowrap;
+
+    &:hover,
+    &:focus {
+      background-color: shade($action-color, 20%);
+      color: #fff;
+    }
+
+    &:disabled {
+      cursor: not-allowed;
+      opacity: 0.5;
+
+      &:hover {
+        background-color: $action-color;
+      }
+    }
+  }
+}
+
+
+@mixin cta-btn() {
+  display: inline-block;
+  margin-bottom: 0; // For input.btn
+  text-align: center;
+  vertical-align: middle;
+  touch-action: manipulation;
+  cursor: pointer;
+  background-image: none; // Reset unusual Firefox-on-Android default style; see https://github.com/necolas/normalize.css/issues/214
+  border: 1px solid transparent;
+  white-space: nowrap;
+  padding: 6px 12px 6px;
+  font-size: 1rem;
+  border-radius: 6px;
+
+  &:hover,
+  &:focus,
+  &.focus {
+    color: $color-white;
+    text-decoration: none;
+  }
+
+  &:active,
+  &.active {
+    outline: 0;
+    background-image: none;
+    box-shadow: rgba(0,0,0,.125) 0 3px 5px;
+  }
+
+  &.disabled,
+  &[disabled],
+  fieldset[disabled] & {
+    cursor: not-allowed;
+    opacity: 0.65;
+    box-shadow: none;
+  }
+}
+
+  

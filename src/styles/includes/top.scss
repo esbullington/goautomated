@@ -1,0 +1,59 @@
+
+.navigation-top {
+	width: 100%;
+	height: 40px;
+	background-color: $top-navigation-background;
+	color: $top-navigation-color;
+	a {
+		color: $top-navigation-link-color;
+	}
+}
+
+.navigation-top-inner-wrapper {
+	height: 100%;
+	@extend %outer-container;
+}
+
+.social-media-menu {
+	@extend %vertical-align;
+	font-size: 0;
+	list-style-type: none;
+	li {
+		display: inline-block;
+		width: 26px;
+		text-align: center;
+		font-size: 16px * 1.4;
+    &:hover a {
+			cursor: pointer;
+      color: transparentize($top-navigation-color, 0);
+    }
+	}
+	li a {
+		text-decoration: none;
+	}
+	li a > span {
+		display: none;
+	}
+  li a::before {
+    font-family: "Ionicons";
+  }
+  // Color codes and technique:
+  // http://justintadlock.com/archives/2013/08/14/social-nav-menus-part-2
+  li a[href*="wordpress.org"]::before,
+  li a[href*="wordpress.com"]::before {
+    content: '\f248';
+    // color:   #21759b;
+  }
+  li a[href*="twitter.com"]::before {
+    content: '\f243';
+    // color:   #33ccff;
+  }
+  li a[href*="facebook.com"]::before {
+    content: '\f231';
+    // color:   #3b5998;
+  }
+  li a[href*="github.com"]::before {
+    content: '\f233';
+    // color:   #171515;
+  }
+}

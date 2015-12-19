@@ -1,0 +1,26 @@
+---
+layout: default
+title: Blog
+menus:
+  - primary
+weight: "2"
+---
+
+<div class="inner-wrapper">
+
+<header>
+	<h1>Recent Posts</h1>
+	<p>On theme writing, programming languages, site generators, and so forth.</p>
+</header>
+
+{% markdown %}
+
+{% for post in paginator.posts %}
+  * {{ post.date | date_to_string }} &raquo; [ {{ post.title }} ]({{ post.url }})
+{% endfor %}
+
+{% endmarkdown %}
+
+{% include pagination.html %}
+
+</div>

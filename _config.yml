@@ -1,0 +1,54 @@
+# Where things are
+source:      .
+destination: ./_site
+plugins_dir:     ./_plugins
+data_source_dir: ./_data
+collections:
+  themes:
+    output: true
+    permalink: /themes/:path/
+
+# Handling Reading
+safe:         false
+include: ['.htaccess', '_pages']
+exclude:      ['_config', 'package.json', 'gulpfile.js', 'node_modules', 'src', '.git', 'Gemfile', 'Gemfile.lock', 'LICENSE']
+keep_files:   [".git"]
+encoding:     "utf-8"
+markdown_ext: "markdown,md"
+
+# Filtering Content
+show_drafts: null
+limit_posts: 0
+future:      true
+unpublished: false
+
+# Plugins
+whitelist: []
+gems:  [jekyll-paginate, liquid-template-inheritance]
+
+# Conversion
+markdown:    kramdown
+lsi:         false
+excerpt_separator: "\n\n"
+
+# Serving
+port:    4000
+host:    "eric-desktop.home.lan" 
+url: "http://eric-desktop.home.lan:3000"
+baseurl: "" # if adding subdirectory, be sure to add trailing slash: /blog/
+
+# Outputting
+permalink:     /:year/:month/:day/:title/
+paginate: 5
+paginate_path: /blog/page:num
+timezone:      null
+
+kramdown:
+  auto_ids:       true
+  footnote_nr:    1
+  entity_output:  as_char
+  toc_levels:     1..6
+  smart_quotes:   lsquo,rsquo,ldquo,rdquo
+  enable_coderay: false
+  autolink:       true
+  parse_block_html: true

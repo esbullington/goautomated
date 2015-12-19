@@ -1,0 +1,37 @@
+
+.section-cta, .cta-description {
+	color: $white;
+}
+
+.section-cta {
+	.frontpage-inner-wrapper {
+		height: 92px;
+	}
+	div {
+		margin: 0;
+		h2 {
+			font-size: 200%;
+			margin: 0 0 0 0.5em;
+		}
+	}
+	background-color: $blue;
+	padding: 1em 0;
+	.cta-container {
+		@include span-columns(8 of 12);
+	}
+	button {
+		@include span-columns(4 of 12);
+		display: inline-block;
+		height: 42px;
+		@extend %vertical-align;
+		border: 1px solid $white;
+		a {
+			display: block;
+			top: 0;
+			left: 0;
+			color: $white;
+			height: 100%;
+			width: 100%;
+		}
+	}
+}

@@ -1,0 +1,62 @@
+
+@include media($medium-screen) {
+	#menu-toggle-label {
+		display: none; /* hide the checkbox */
+	}
+	.navigation-primary {
+		position: relative;
+		height: 60px;
+	}
+	.navigation-primary-inner-wrapper {
+		height: 100%;
+		img {
+			float: left;
+			display: inline-block;
+			margin: 14px 10px;
+		}
+		h1 {
+			float: left;
+			height: 100%;
+			font-size: 120%;
+			margin: 0; padding: 0;
+			display: inline-block;
+			a {
+				display: inline-block;
+				@extend %vertical-align;
+			}
+		}
+	}
+	.navigation-menu {
+		position: relative;
+		float: right;
+		display: inline-block;
+		height: 100%;
+		list-style-type: none;
+		// Removes whitespace between list items
+		font-size: 0;
+		li {
+			display: inline-block;
+			margin-left: 8px;
+			margin-right: 8px;
+			// Have to set absolute font size since parent is 0
+			font-size: 16px * 1.2;
+			list-style: none;
+			@extend %vertical-align;
+		}
+		li a {
+			text-decoration: none;
+			color: $navigation-link-color;
+		}
+		li a:hover {
+			padding-bottom: 4px;
+			border-bottom: 2px solid $navigation-hover-link-color;
+		}
+		li.active a {
+			padding-bottom: 4px;
+			border-bottom: 2px solid $navigation-link-color;
+			&:hover {
+				border-bottom: 2px solid $navigation-hover-link-color;
+			}
+		}
+	}
+}

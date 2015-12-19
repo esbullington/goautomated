@@ -1,0 +1,37 @@
+
+<footer class="footer" role="contentinfo">
+
+  <section class="footer-links">
+		<dl>
+			<dt>Content</dt>
+			{% for item in site.data.nav.footer.content %}
+			<dd>
+				<a href="{{ item.url }}"><span>{{ item.text }}</span></a>
+			</dd>
+			{% endfor %}
+		</dl>
+		<dl>
+			<dt>Follow Us</dt>
+			{% for item in site.data.nav.social %}
+			<dd>
+			<a href="{{ item.url }}"><span>{{ item.text }}</span></a>
+			</dd>
+			{% endfor %}
+		</dl>
+		<dl>
+			<dt>Legal</dt>
+			{% for item in site.data.nav.footer.legal %}
+			<dd>
+			<a href="{{ item.url }}"><span>{{ item.text }}</span></a>
+			</dd>
+			{% endfor %}
+		</dl>
+  </section>
+
+  <hr>
+
+	<p>{{ site.data.global.footer_text }}</p>
+
+</footer>
+
+{% include scripts.html %}

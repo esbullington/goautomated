@@ -1,0 +1,8 @@
+.jekyll-metadata
+_drafts/
+php/vendor
+node_modules
+_site
+.sass-cache
+.DS_Store
+*.swp

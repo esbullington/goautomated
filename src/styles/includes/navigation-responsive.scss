@@ -1,0 +1,51 @@
+
+#menu-toggle {
+	display: none; /* hide the checkbox */
+}
+
+@include media(max-width $medium-screen - 1) {
+	.navigation-primary {
+		overflow: hidden;
+		@include clearfix();
+	}
+	.navigation-primary-inner-wrapper {
+		/*Make dropdown links appear inline*/
+		.social-media-menu, .navigation-menu {
+			text-align: right;
+			position: relative;
+			float: left;
+			width: 100%;
+		}
+		.menu {
+			display: none;
+		}
+		#menu-toggle:checked ~ .menu {
+			display: block;
+		}
+		.hamburger-icon {
+			cursor: pointer;
+			margin: 1em 0;
+			float: right;
+			font-size: 120%;
+			width: 30%;
+			text-align: right;
+			&:after {
+				font-family: "Ionicons";
+				content: $ionicon-var-navicon-round;
+				color: $blue;
+			}
+		}
+		img {
+			float: left;
+			margin: 14px 10px;
+		}
+		h1 {
+			float: left;
+			height: 100%;
+			width: 50%;
+			font-size: 120%;
+			margin: 1em 0 0 0;
+			padding: 0;
+		}
+	}
+}

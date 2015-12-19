@@ -1,0 +1,15 @@
+
+
+.themes {
+	.inner-wrapper {
+		text-align: center;
+		ul {
+			display: inline-block;
+		}
+		li:before {    
+			font-family: 'Ionicons';
+			content: $ionicon-var-checkmark;
+			margin:0 8px 0 0;
+		}
+	}
+}
