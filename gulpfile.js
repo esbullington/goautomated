@@ -5,6 +5,9 @@ var prefix      = require('gulp-autoprefixer');
 var gutil				= require('gulp-util');
 var chmod				= require('gulp-chmod');
 var imagemin		= require('gulp-imagemin');
+var imagemin		= require('gulp-imagemin');
+var pngquant		= require('imagemin-pngquant');
+var imageResize = require('gulp-image-resize');
 var rev 				= require('gulp-rev');
 var browserify 	= require('browserify');
 var uglify 			= require('gulp-uglify');
@@ -115,14 +118,16 @@ gulp.task('jekyll:rebuild', function (done) {
 });
 
 gulp.task('images', () => {
-  return gulp.src([paths.src + 'images/*', '!' + paths.src + 'images/raw', '!' + paths.src + 'images/backgrounds'], {base: paths.src + 'images' })
+  return gulp.src(['*', '!raw', '!backgrounds'], { cwd: paths.src + '/images' })
     .pipe(imagemin({
         progressive: true,
         svgoPlugins: [{removeViewBox: false}],
         use: [pngquant()]
     }))
     .pipe(chmod(664))
-    .pipe(gulp.dest(paths.dest + 'images'));
+    .pipe(gulp.dest('_site/' + paths.dest + '/img'))
+		.pipe(browserSync.reload({stream: true}))
+    .pipe(gulp.dest(paths.dest + '/img'));
 });
 
 // Theme header background images
@@ -131,7 +136,8 @@ gulp.task('srcset', (cb) => {
   // specifying the folder name, the ouput dimensions and
   // whether or not to crop the images
   const images = [
-      { dir: 'default', width: 2880, height: 1800, crop: true },
+      { dir: 'default', width: 1920, height: 1800, crop: true },
+      { dir: 'retina', width: 2880, height: 1800, crop: true },
       { dir: 'thumbnail', width: 260, crop: false, filter: 'Catrom' }
   ];
   images.forEach( (type) => {
@@ -146,8 +152,8 @@ gulp.task('srcset', (cb) => {
       }
     }
     gulp
-    .src(paths.src+'images/backgrounds/*')
-    .pipe(imageresize(resize_settings))
+    .src(paths.src+'/images/backgrounds/*')
+    .pipe(imageResize(resize_settings))
     .pipe(imagemin({
         progressive: true,
         // set this if you are using svg images
@@ -155,7 +161,9 @@ gulp.task('srcset', (cb) => {
         use: [pngquant()]
     }))
     .pipe(chmod(664))
-    .pipe(gulp.dest(paths.dest+'images/backgrounds/'+type.dir));
+    .pipe(gulp.dest('_site/' + paths.dest+'/img/backgrounds/'+type.dir))
+		.pipe(browserSync.reload({stream:true}))
+    .pipe(gulp.dest(paths.dest+'/img/backgrounds/'+type.dir));
   });
   cb();
 });
@@ -163,7 +171,7 @@ gulp.task('srcset', (cb) => {
 /**
  * Wait for jekyll-build, then launch the Server
  */
-gulp.task('browser-sync', ['sass', 'scripts', 'jekyll:rebuild'], function() {
+gulp.task('browser-sync', ['sass', 'scripts', 'images', 'srcset', 'jekyll:rebuild'], function() {
 	browserSync({
 		host: "eric-desktop.home.lan",
 		server: {
@@ -177,9 +185,11 @@ gulp.task('browser-sync', ['sass', 'scripts', 'jekyll:rebuild'], function() {
  * Watch html/md files, run jekyll & reload BrowserSync
  */
 gulp.task('watch', ['browser-sync'], function () {
+	gulp.watch(paths.src + '/images/*', ['images']);
+	gulp.watch(paths.src + '/images/background/*', ['srcset']);
 	gulp.watch(paths.src + '/styles/**/*.scss', ['sass']);
 	gulp.watch(paths.src + '/scripts/**/*.js', ['scripts']);
-	gulp.watch(['*.{md,html}', '_themes/**/*', 'blog/**/*', '_data/**/*', '_layouts/**/*.html', '_includes/**/*.{html,md}', '_posts/**/*.{html,md}', '_pages/**/*.{html,md}'], ['jekyll:rebuild']);
+	gulp.watch(['*.{md,html}', 'blog/**/*', '_data/**/*', '_layouts/**/*.html', '_includes/**/*.{html,md}', '_posts/**/*.{html,md}', '_pages/**/*.{html,md}'], ['jekyll:rebuild']);
 });
 
 /**

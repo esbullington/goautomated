@@ -53,11 +53,6 @@ $base-spacing: $base-line-height * 1em;
 $small-spacing: $base-spacing / 2;
 $base-z-index: 0;
 
-// Top nav menu
-$top-navigation-background: $dark-background-color;
-$top-navigation-color: $white;
-$top-navigation-link-color: transparentize($top-navigation-color, 0.5);
-
 // Nav menu
 $navigation-background: $light-gray;
 $navigation-color: $black;

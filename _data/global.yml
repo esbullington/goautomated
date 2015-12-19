@@ -1,12 +1,9 @@
 # Site Settings
-title: 'Palmetto Themes'
-description: 'Palmetto Themes Main Site'
+title: 'Go Automated'
+description: 'Go Automated Main Site'
 footer_text: 'All Content &copy; Copyright 2015 Palmetto Software Solutions, LLC'
-keywords: "WordPress, themes"
+keywords: "productivity, automation, efficiency"
 
 # Admin Settings
 admin_name: 'Eric S Bullington'
 admin_email: 'eric@ericbullington.com'
-
-themes:
-  - { url: '/', title: 'Palmetto Theme', description: "The eponymous theme that started it all" }

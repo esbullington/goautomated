@@ -1,0 +1,13 @@
+
+.section-header {
+	background-image: url('../img/backgrounds/default/banner.jpg');
+	height: calc(100vh - 60px);
+	color: $white;
+	p {
+		color: $white;
+	}
+	margin-bottom: 3em;
+	img {
+		margin-bottom: 2em;
+	}
+}
