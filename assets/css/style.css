@@ -605,7 +605,7 @@ main.default section {
 
 .section-header {
   background-image: url("../img/backgrounds/retina/blueprint.jpg");
-  height: calc(100vh - 60px);
+  min-height: calc(100vh - 60px);
   color: #FFFFF8; }
   .section-header p {
     color: #FFFFF8; }
@@ -618,7 +618,7 @@ main.default section {
       font-size: 200%; }
   .section-header .learn-more {
     display: inline-block;
-    margin-top: 40px;
+    margin: 40px 0;
     border: 2px solid #FFFFF8;
     padding: 10px;
     cursor: pointer; }
@@ -746,6 +746,19 @@ main.default section {
       color: #FFFFF8;
       height: 100%;
       width: 100%; }
+
+.section-list .frontpage-inner-wrapper {
+  text-align: center; }
+
+.section-list p {
+  display: inline-block;
+  width: 80%; }
+
+.section-list #mc_embed_signup {
+  display: inline-block;
+  width: 40%; }
+  .section-list #mc_embed_signup input[type=submit] {
+    width: 100%; }
 
 main.default h1, main.default h2, main.default h3 {
   font-weight: bold; }

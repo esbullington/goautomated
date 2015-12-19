@@ -17,6 +17,7 @@
     "gulp-util": "^3.0.7",
     "imagemin-pngquant": "^4.2.0",
     "run-sequence": "^1.1.5",
+    "smooth-scroll": "github:esbullington/smooth-scroll",
     "through2": "^2.0.0",
     "uglify": "^0.1.5",
     "vinyl-buffer": "^1.0.0",

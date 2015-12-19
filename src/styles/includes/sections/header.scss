@@ -1,7 +1,7 @@
 
 .section-header {
 	background-image: url('../img/backgrounds/retina/blueprint.jpg');
-	height: calc(100vh - 60px);
+	min-height: calc(100vh - 60px);
 	color: $white;
 	p {
 		color: $white;
@@ -20,7 +20,7 @@
 	}
 	.learn-more {
 		display: inline-block;
-		margin-top: 40px;
+		margin: 40px 0;
 		border: 2px solid $white;
 		padding: 10px;
 		cursor: pointer;
