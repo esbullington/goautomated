@@ -15,6 +15,14 @@
 }
 
 
+.recaptcha {
+	margin-bottom: 14px;
+}
+
+.g-recaptcha {
+	width: 100%;
+}
+
 #contactForm {
 	@include outer-container;
 	.row, .contact-submit-button {

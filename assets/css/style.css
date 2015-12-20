@@ -541,6 +541,12 @@ main.default section {
   .contact .inner-wrapper p:last-child {
     margin-right: 0; }
 
+.recaptcha {
+  margin-bottom: 14px; }
+
+.g-recaptcha {
+  width: 100%; }
+
 #contactForm {
   max-width: 1060px;
   margin-left: auto;

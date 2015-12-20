@@ -1,3 +1,4 @@
+var serialize = require('./formSerialize');
 
 exports.init = function() {
 
@@ -5,34 +6,29 @@ exports.init = function() {
 
 	function sendAjax(msg) {
 		var xhr = new XMLHttpRequest();
-		var url = "https://zapier.com/hooks/catch/bn14gs/";
+		var url = "https://goautomated.webscript.io/mail";
 		xhr.open('POST', url, true);
+    xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 		xhr.onreadystatechange = function() {
 			if (xhr.readyState === 4 && xhr.status === 200) {
+				var json = JSON.parse(xhr.response);
 				var onsubmitMessage = document.getElementById("onsubmitMessage");
 				var text = ('innerText' in onsubmitMessage)? 'innerText' : 'textContent';
-				onsubmitMessage[text] = "Thank you for your message";
-				contactForm.reset();
+				if (json.result === 'success') {
+					onsubmitMessage[text] = "Thank you for your message.";
+					contactForm.reset();
+				} else {
+					onsubmitMessage[text] = "There's been an error, please try to submit again.";
+				}
 			}
 		};
 		xhr.send(msg);
 	}
 
-	function fetchInput(evt) {
-		var contactFormName = document.getElementById("contactFormName").value;
-		var contactFormEmail = document.getElementById("contactFormEmail").value;
-		var contactFormMessage = document.getElementById("contactFormMessage").value;
-		var msg = {
-			name: contactFormName,
-			email: contactFormEmail,
-			message: contactFormMessage
-		};
-		return JSON.stringify(msg);
-	}
-
 	contactForm.onsubmit = function(evt) {
 		evt.preventDefault();
-		var msg = fetchInput(evt);
+		var msg = serialize(contactForm);
+		console.log('msg', msg);
 		sendAjax(msg);
 	};
 
