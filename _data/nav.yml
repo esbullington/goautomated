@@ -11,5 +11,4 @@ footer:
     - { url: '/about/', text: 'About' }
     - { url: '/contact/', text: 'Contact' }
   legal:
-    - { url: '/terms/', text: 'Terms and Conditions' }
-    - { url: '/contact/', text: 'Privacy' }
+    - { url: '/privacy/', text: 'Privacy' }

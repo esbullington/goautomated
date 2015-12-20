@@ -4,6 +4,9 @@
 	.frontpage-inner-wrapper {
 		text-align: center;
 	}
+	input {
+		border: 1px solid $medium-gray;
+	}
 	p {
 		display: inline-block;
 		width: 80%;

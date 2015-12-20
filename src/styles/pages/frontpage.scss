@@ -10,10 +10,6 @@
 	font-weight: bold;
 }
 
-#mc_embed_signup{
-	clear:left;
-}
-
 main.default {
 	section {
 		margin-bottom: 80px;
@@ -33,14 +29,6 @@ main.default {
 			border-bottom: 1px solid $black;
 			padding-bottom: 3px;
 		}
-	}
-}
-
-.section-features, .section-html5 {
-	li:before {    
-		font-family: 'Ionicons';
-		content: $ionicon-var-checkmark-circled;
-		margin:0 8px 0 0;
 	}
 }
 

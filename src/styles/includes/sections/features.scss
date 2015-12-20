@@ -1,1 +1,9 @@
 
+.section-features {
+	li:before {    
+		font-family: 'Ionicons';
+		content: $ionicon-var-checkmark-circled;
+		margin:0 8px 0 0;
+	}
+}
+

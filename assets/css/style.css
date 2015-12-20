@@ -709,8 +709,16 @@ main.default section {
       height: 100%;
       width: 100%; }
 
+.section-features li:before {
+  font-family: 'Ionicons';
+  content: "";
+  margin: 0 8px 0 0; }
+
 .section-newsletter .frontpage-inner-wrapper {
   text-align: center; }
+
+.section-newsletter input {
+  border: 1px solid #777777; }
 
 .section-newsletter p {
   display: inline-block;
@@ -724,9 +732,6 @@ main.default section {
 
 main.default h1, main.default h2, main.default h3 {
   font-weight: bold; }
-
-#mc_embed_signup {
-  clear: left; }
 
 main.default section {
   margin-bottom: 80px; }
@@ -747,11 +752,6 @@ main.default hr:after {
   display: inline-block;
   border-bottom: 1px solid #111111;
   padding-bottom: 3px; }
-
-.section-features li:before, .section-html5 li:before {
-  font-family: 'Ionicons';
-  content: "";
-  margin: 0 8px 0 0; }
 
 .blog main.default {
   text-align: center; }
