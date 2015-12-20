@@ -3,7 +3,7 @@ main:
   - { url: '/about', text: 'About' }
 
 social:
-  - { url: 'https://www.facebook.com/Palmetto-Themes-909324702496441', text: 'Facebook' }
+  - { url: 'https://www.facebook.com/Go-Automated-1207102852640070', text: 'Facebook' }
   - { url: 'https://www.twitter.com/eric_bullington', text: 'Twitter' }
 
 footer: 
