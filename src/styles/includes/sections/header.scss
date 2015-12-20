@@ -1,7 +1,7 @@
 
 .section-header {
 	background-image: url('../img/backgrounds/retina/blueprint.jpg');
-	min-height: calc(100vh - 60px);
+	// min-height: calc(100vh - 60px);
 	color: $white;
 	p {
 		color: $white;
@@ -9,7 +9,7 @@
 	.frontpage-inner-wrapper {
 	}
 	header {
-		margin-top: 100px;
+		margin: 100px 0;
 		text-align: center;
 		h1 {
 			font-size: 500%;
@@ -19,10 +19,11 @@
 		}
 	}
 	.learn-more {
-		display: inline-block;
-		margin: 40px 0;
-		border: 2px solid $white;
-		padding: 10px;
-		cursor: pointer;
+		display: none;
+		// display: inline-block;
+		// margin: 40px 0;
+		// border: 2px solid $white;
+		// padding: 10px;
+		// cursor: pointer;
 	}
 }

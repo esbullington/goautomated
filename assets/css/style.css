@@ -605,23 +605,18 @@ main.default section {
 
 .section-header {
   background-image: url("../img/backgrounds/retina/blueprint.jpg");
-  min-height: calc(100vh - 60px);
   color: #FFFFF8; }
   .section-header p {
     color: #FFFFF8; }
   .section-header header {
-    margin-top: 100px;
+    margin: 100px 0;
     text-align: center; }
     .section-header header h1 {
       font-size: 500%; }
     .section-header header p, .section-header header span {
       font-size: 200%; }
   .section-header .learn-more {
-    display: inline-block;
-    margin: 40px 0;
-    border: 2px solid #FFFFF8;
-    padding: 10px;
-    cursor: pointer; }
+    display: none; }
 
 .section-intro {
   margin-bottom: 3em; }
