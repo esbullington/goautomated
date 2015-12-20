@@ -700,17 +700,17 @@ main.default section {
       height: 100%;
       width: 100%; }
 
-.section-list .frontpage-inner-wrapper {
+.section-newsletter .frontpage-inner-wrapper {
   text-align: center; }
 
-.section-list p {
+.section-newsletter p {
   display: inline-block;
   width: 80%; }
 
-.section-list #mc_embed_signup {
+.section-newsletter #mc_embed_signup {
   display: inline-block;
   width: 40%; }
-  .section-list #mc_embed_signup input[type=submit] {
+  .section-newsletter #mc_embed_signup input[type=submit] {
     width: 100%; }
 
 main.default h1, main.default h2, main.default h3 {
@@ -719,20 +719,25 @@ main.default h1, main.default h2, main.default h3 {
 #mc_embed_signup {
   clear: left; }
 
-.frontpage-inner-wrapper h1, .frontpage-inner-wrapper h2, .frontpage-inner-wrapper h3 {
-  text-align: center; }
-
 main.default section {
   margin-bottom: 80px; }
 
 main.default hr:after {
   height: 2px;
-  margin: 4em 0;
   background: #777777;
+  margin: 0.5em 0;
   float: left;
   background: linear-gradient(to right, transparent 0%, rgba(0, 0, 0, 0.09) 35%, rgba(0, 0, 0, 0.09) 70%, transparent 100%);
   content: "";
   width: 100%; }
+
+.section-features .frontpage-inner-wrapper header, .section-newsletter .frontpage-inner-wrapper header {
+  text-align: center; }
+
+.section-features .frontpage-inner-wrapper h1, .section-newsletter .frontpage-inner-wrapper h1 {
+  display: inline-block;
+  border-bottom: 1px solid #111111;
+  padding-bottom: 3px; }
 
 .section-features li:before, .section-html5 li:before {
   font-family: 'Ionicons';
