@@ -525,6 +525,9 @@ main.default section {
     max-width: 35em;
     text-align: center; }
 
+.page:not(.home) main {
+  margin-top: 40px; }
+
 .about .inner-wrapper p {
   margin: 1em 2em;
   color: #777777; }
