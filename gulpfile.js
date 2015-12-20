@@ -118,7 +118,7 @@ gulp.task('jekyll:rebuild', function (done) {
 });
 
 gulp.task('images', () => {
-  return gulp.src(['*', '!raw', '!backgrounds'], { cwd: paths.src + '/images' })
+  return gulp.src(['**/*', '!raw/**/*', '!backgrounds/**/*'], { cwd: paths.src + '/images' } )
     .pipe(imagemin({
         progressive: true,
         svgoPlugins: [{removeViewBox: false}],
