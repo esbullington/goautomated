@@ -4,7 +4,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
  <title>{{ site.data.global.title | xml_escape }}</title>
- <link href="{{ site.url | append: site.baseurl }}atom.xml" rel="self"/>
+ <link href="{{ site.url }}/atom.xml" rel="self"/>
  <link href="{{ site.url }}"/>
  <updated>{{ site.time | date_to_xmlschema }}</updated>
  <id>{{ site.url }}</id>
@@ -16,7 +16,7 @@
  {% for post in site.posts %}
  <entry>
    <title>{{ post.title }}</title>
-   <link href="{{ site.url | append: site.baseurl | append: post.url }}"/>
+   <link href="{{ site.url | append: post.url }}"/>
    <updated>{{ post.date | date_to_xmlschema }}</updated>
 	 <id>{{ site.url | append: post.id }}</id>
    <content type="html">{{ post.content | xml_escape }}</content>
