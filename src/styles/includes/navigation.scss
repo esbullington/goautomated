@@ -43,6 +43,9 @@
   li a[href*="twitter.com"]::before {
     content: $ionicon-var-social-twitter;
   }
+  li a[href*="goautomated.biz"]::before {
+    content: $ionicon-var-social-rss;
+  }
   li a[href*="facebook.com"]::before {
     content: $ionicon-var-social-facebook;
   }

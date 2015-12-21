@@ -370,6 +370,8 @@ main.default section {
     content: ""; }
   .social-media-menu li a[href*="twitter.com"]::before {
     content: ""; }
+  .social-media-menu li a[href*="goautomated.biz"]::before {
+    content: ""; }
   .social-media-menu li a[href*="facebook.com"]::before {
     content: ""; }
   .social-media-menu li a[href*="github.com"]::before {

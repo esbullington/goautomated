@@ -5,6 +5,7 @@ main:
 social:
   - { url: 'https://www.facebook.com/Go-Automated-1207102852640070', text: 'Facebook' }
   - { url: 'https://www.twitter.com/eric_bullington', text: 'Twitter' }
+  - { url: 'https://www.goautomated.biz/feed.xml', text: 'RSS' }
 
 footer: 
   content:
