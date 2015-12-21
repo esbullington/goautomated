@@ -28,10 +28,7 @@ lsi:         false
 excerpt_separator: "\n\n"
 
 # Serving
-port:    4000
-host:    "eric-desktop.home.lan" 
 url: "http://eric-desktop.home.lan:3000"
-baseurl: "" # if adding subdirectory, be sure to add trailing slash: /blog/
 
 # Outputting
 permalink:     /:year/:month/:day/:title/

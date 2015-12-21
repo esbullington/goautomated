@@ -1,5 +1,2 @@
 # Serving
-port:    400
-host:    "www.goautomated.biz" 
-baseurl: "" # if add subdirectory, be sure to add trailing slash: /blog/
 url: "https://www.goautomated.biz"
