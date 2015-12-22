@@ -13,6 +13,7 @@
     "gulp-imagemin": "^2.4.0",
     "gulp-rev": "^6.0.1",
     "gulp-sass": "^2.1.0",
+    "gulp-sourcemaps": "^1.6.0",
     "gulp-uglify": "^1.5.1",
     "gulp-util": "^3.0.7",
     "imagemin-pngquant": "^4.2.0",
@@ -25,9 +26,9 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-		"deploy": "scp -r _site/* root@static-sites.remote:/var/www/goautomated.biz/",
-		"draft": "bundle exec jekyll draft --layout post",
-		"publish": "bundle exec jekyll publish"
+    "deploy": "scp -r _site/* root@static-sites.remote:/var/www/goautomated.biz/",
+    "draft": "bundle exec jekyll draft --layout post",
+    "publish": "bundle exec jekyll publish"
   },
   "author": "Eric S Bullington",
   "license": "SEE LICENSE IN LICENSE"

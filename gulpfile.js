@@ -1,6 +1,7 @@
 var gulp        = require('gulp');
 var browserSync = require('browser-sync');
 var sass        = require('gulp-sass');
+var sourcemaps  = require('gulp-sourcemaps');
 var prefix      = require('gulp-autoprefixer');
 var gutil				= require('gulp-util');
 var chmod				= require('gulp-chmod');
@@ -89,17 +90,27 @@ gulp.task('scripts', function() {
  */
 gulp.task('sass', function () {
 	return gulp.src(paths.src + '/styles/[^_]*.scss')
+	.pipe(sourcemaps.init())
+	.pipe(sass().on('error', styleErrorHandler))
+	.pipe(prefix(['last 15 versions', '> 1%', 'ie 8'], { cascade: true }))
+	.pipe(sourcemaps.write())
+	.pipe(gulp.dest('_site/assets/css'))
+	.pipe(browserSync.reload({stream:true}))
+	.pipe(gulp.dest('assets/css'));
+});
+
+gulp.task('sass:build', function () {
+	return gulp.src(paths.src + '/styles/[^_]*.scss')
 	.pipe(sass().on('error', styleErrorHandler))
 	.pipe(prefix(['last 15 versions', '> 1%', 'ie 8'], { cascade: true }))
 	.pipe(gulp.dest('_site/assets/css'))
-	.pipe(browserSync.reload({stream:true}))
 	.pipe(gulp.dest('assets/css'));
 });
 
 /**
  * Build the Jekyll Site
  */
-gulp.task('jekyll:build', ['sass', 'scripts'], function (done) {
+gulp.task('jekyll:build', ['sass:build', 'scripts'], function (done) {
 	browserSync.notify(messages.jekyllBuild);
 	cp.spawn('bundle', ['exec', 'jekyll', 'build', '--config', '_config.yml,config/_config_production.yml'], {stdio: 'inherit'})
 	.on('close', done);

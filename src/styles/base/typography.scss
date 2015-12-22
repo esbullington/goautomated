@@ -6,20 +6,25 @@ body {
   line-height: $base-line-height;
 }
 
-%heading {
-  font-family: $heading-font-family;
-  font-size: $base-font-size;
+@mixin header-mixin {
   line-height: $heading-line-height;
   margin: 0 0 $small-spacing;
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-	@extend %heading;
+h1 {
+  font-family: $heading-font-family;
+  font-size: $base-font-size * 2 * $header-multiplier;
+}
+
+h2 {
+  font-family: $heading-font-family;
+  font-size: $base-font-size * 1.5 * $header-multiplier;
+}
+
+h3, h4, h5, h6 {
+  font-family: $heading-font-family;
+  font-size: $base-font-size * 1.17 * $header-multiplier;
+  @include header-mixin();
 }
 
 p {
