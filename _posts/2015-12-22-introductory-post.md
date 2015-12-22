@@ -2,6 +2,7 @@
 layout: post
 title: Introductory Post
 tags: automation smb cloud
+excerpt: As I read comments from small/medium-sized business online communities on Facebook, LinkedIn, Reddit, and peruse freelance job offers on Upwork, I'm struck by how often entrepreneurs are paying people hundreds or thousands of dollars to do the same basic business automation tasks over and over again.
 ---
 
 <blockquote markdown="0">

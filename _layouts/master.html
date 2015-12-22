@@ -7,7 +7,7 @@
 	{% include head.html %}
 </head>
 
-<body class="{{ page.title | downcase | replace:' ','-' | replace:',','' | strip_html }}{% if page.category %} category-{{ page.category }}{% endif %}{% if page.layout %} page layout-{{ page.layout }}{% endif %}">
+<body class="{{ page.title | downcase | replace:' ','-' | replace:',','' | strip_html }}{% if page.is_page %} page{% endif %}{% if page.is_post %} post{% endif %}">
 
 	{% include navigation.html %}
 

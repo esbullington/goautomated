@@ -45,3 +45,18 @@ kramdown:
   enable_coderay: false
   autolink:       true
   parse_block_html: true
+
+defaults:
+  -
+    scope:
+      path: ""
+      type: "posts"
+    values:
+      is_post: true
+  -
+    scope:
+      #path: ["_pages", "blog"]
+      path: ""
+      type: "pages" # previously `page` in Jekyll 2.2.
+    values:
+      is_page: true

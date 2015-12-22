@@ -18,27 +18,13 @@ main.default {
 		$header-margins: 0.5em;
 		text-align: center;
 		margin-bottom: 26px;
-		h1 {
-			font-size: 160%;
-			text-align: center;
-			text-transform: uppercase;
-			margin: 0;
-		}
 		p {
 			color: $medium-gray;
 		}
 	}
 	h1 {
-		font-size: 160%;
-		@extend %frontpage-heading;
-	}
-	h2 {
-		font-size: 140%;
-		@extend %frontpage-heading;
-	}
-	h3 {
-		font-size: 120%;
-		@extend %frontpage-heading;
+		text-align: center;
+		margin: 0;
 	}
 	img {
 		@extend %horizontal-align;

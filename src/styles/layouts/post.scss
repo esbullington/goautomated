@@ -1,6 +1,25 @@
 
-.layout-post {
+.post {
 	main {
 		@extend %outer-container;
+		margin-top: 50px;
+		margin-bottom: 100px;
+		p {
+			color: $medium-gray;
+		}
+	}
+	header {
+		text-align: center;
+		h1 {
+			display: inline-block;
+		}
+	}
+	blockquote {
+		width: 100%;
+		margin: 20px 0;
+		text-align: center;
+		cite {
+			font-style: italic;
+		}
 	}
 }

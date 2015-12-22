@@ -1,9 +1,12 @@
 
 .blog {
-	main.default {
-		text-align: center;
+	main {
 		.pagination-wrap {
 			margin-top: 20px;
+		}
+		dl dt {
+			font-weight: normal;
+			font-size: 120%;
 		}
 	}
 }
