@@ -12,6 +12,7 @@ GEM
       mercenary (~> 0.3.3)
       rouge (~> 1.7)
       safe_yaml (~> 1.0)
+    jekyll-compose (0.3.0)
     jekyll-paginate (1.1.0)
     jekyll-sass-converter (1.3.0)
       sass (~> 3.2)
@@ -19,7 +20,6 @@ GEM
       listen (~> 3.0)
     kramdown (1.9.0)
     liquid (3.0.6)
-    liquid-template-inheritance (2.6.2)
     listen (3.0.5)
       rb-fsevent (>= 0.9.3)
       rb-inotify (>= 0.9)
@@ -29,12 +29,12 @@ GEM
       ffi (>= 0.5.0)
     rouge (1.10.1)
     safe_yaml (1.0.4)
-    sass (3.4.19)
+    sass (3.4.20)
 
 PLATFORMS
   ruby
 
 DEPENDENCIES
   jekyll
+  jekyll-compose
   jekyll-paginate
-  liquid-template-inheritance

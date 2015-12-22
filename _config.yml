@@ -20,7 +20,7 @@ unpublished: false
 
 # Plugins
 whitelist: []
-gems:  [jekyll-paginate, liquid-template-inheritance]
+gems:  [jekyll-paginate]
 
 # Conversion
 markdown:    kramdown

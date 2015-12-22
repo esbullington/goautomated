@@ -25,7 +25,9 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "deploy": "scp -r _site/* root@wordpress.remote:/var/www/palmettothemes.com"
+		"deploy": "scp -r _site/* root@static-sites.remote:/var/www/goautomated.biz/",
+		"draft": "bundle exec jekyll draft --layout post",
+		"publish": "bundle exec jekyll publish"
   },
   "author": "Eric S Bullington",
   "license": "SEE LICENSE IN LICENSE"
