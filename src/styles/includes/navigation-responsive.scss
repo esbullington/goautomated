@@ -4,6 +4,9 @@
 }
 
 @include media(max-width $medium-screen - 1) {
+	#menu-toggle-label {
+		margin: 0;
+	}
 	.navigation-primary {
 		overflow: hidden;
 		@include clearfix();
@@ -37,7 +40,7 @@
 		}
 		img {
 			float: left;
-			margin: 14px 10px;
+			margin: 30px 12px 0 0;
 		}
 		h1 {
 			float: left;

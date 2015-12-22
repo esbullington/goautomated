@@ -32,3 +32,10 @@ main.default {
 	}
 }
 
+@include media(max-width $medium-screen - 1) {
+	main.default {
+		section {
+			margin-bottom: 40px;
+		}
+	}
+}

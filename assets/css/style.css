@@ -382,6 +382,8 @@ main.default section {
   /* hide the checkbox */ }
 
 @media screen and (max-width: 39em) {
+  #menu-toggle-label {
+    margin: 0; }
   .navigation-primary {
     overflow: hidden; }
     .navigation-primary::after {
@@ -412,7 +414,7 @@ main.default section {
         color: #AA3939; }
     .navigation-primary-inner-wrapper img {
       float: left;
-      margin: 14px 10px; }
+      margin: 30px 12px 0 0; }
     .navigation-primary-inner-wrapper h1 {
       float: left;
       height: 100%;
@@ -587,6 +589,15 @@ main.default section {
   .section-header .learn-more {
     display: none; }
 
+@media screen and (max-width: 39em) {
+  .section-header header {
+    margin: 40px 0;
+    text-align: center; }
+    .section-header header h1 {
+      font-size: 220%; }
+    .section-header header p, .section-header header span {
+      font-size: 140%; } }
+
 .section-intro {
   margin-bottom: 3em; }
   .section-intro .frontpage-inner-wrapper {
@@ -711,6 +722,10 @@ main.default section {
       height: 100%;
       width: 100%; }
 
+@media screen and (max-width: 39em) {
+  .section-cta button {
+    padding: 0.75em 1em; } }
+
 .section-features li:before {
   font-family: 'Ionicons';
   content: "";
@@ -754,6 +769,10 @@ main.default hr:after {
   display: inline-block;
   border-bottom: 1px solid #111111;
   padding-bottom: 3px; }
+
+@media screen and (max-width: 39em) {
+  main.default section {
+    margin-bottom: 40px; } }
 
 .blog main.default {
   text-align: center; }
