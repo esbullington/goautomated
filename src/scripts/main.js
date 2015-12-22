@@ -6,9 +6,7 @@ var scroll = require('./scroll');
 domReady(function() {
 	console.log('Palmetto Themes loaded');
 	var pathname = window.location.pathname;
-	if (pathname === '/') {
-		scroll.init();
-	} else if (pathname === '/contact/') {
+	if (pathname === '/contact/') {
 		contactForm.init();
 	} else {
 	}
