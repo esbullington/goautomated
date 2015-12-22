@@ -1,0 +1,40 @@
+
+@import '../includes/sections/header';
+@import '../includes/sections/intro';
+@import '../includes/sections/bullets';
+@import '../includes/sections/cta';
+@import '../includes/sections/features';
+@import '../includes/sections/newsletter';
+
+.home main {
+	section {
+		margin-bottom: 80px;
+	}
+	hr:after {
+		@include header-separator(2px);
+	}
+	h2 {
+		margin-bottom: 20px;
+	}
+}
+
+.section-features, .section-newsletter {
+	.frontpage-inner-wrapper {
+		header {
+			text-align: center;
+		}
+		h1 {
+			display: inline-block;
+			border-bottom: 1px solid $black;
+			margin-bottom: 10px;
+		}
+	}
+}
+
+@include media(max-width $medium-screen - 1) {
+	.home main {
+		section {
+			margin-bottom: 40px;
+		}
+	}
+}
