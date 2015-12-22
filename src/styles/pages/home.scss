@@ -13,9 +13,6 @@
 	hr:after {
 		@include header-separator(2px);
 	}
-	h2 {
-		margin-bottom: 20px;
-	}
 }
 
 .section-features, .section-newsletter {
