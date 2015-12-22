@@ -5,7 +5,8 @@
 
 .section-cta {
 	.frontpage-inner-wrapper {
-		height: 92px;
+		display: flex;
+		flex-direction: row;
 	}
 	div {
 		margin: 0;
@@ -17,13 +18,14 @@
 	background-color: $brand;
 	padding: 1em 0;
 	.cta-container {
-		@include span-columns(8 of 12);
+		flex: 2;
+		margin: auto;
+		padding-right: 10px;
 	}
 	button {
-		@include span-columns(4 of 12);
-		display: inline-block;
+		flex: 1;
+		margin: auto;
 		height: 42px;
-		@extend %vertical-align;
 		border: 1px solid $white;
 		a {
 			display: block;
