@@ -9,8 +9,10 @@ var imagemin		= require('gulp-imagemin');
 var imagemin		= require('gulp-imagemin');
 var pngquant		= require('imagemin-pngquant');
 var imageResize = require('gulp-image-resize');
+var minifyCss   = require('gulp-minify-css');
 var rev 				= require('gulp-rev');
 var revReplace  = require("gulp-rev-replace");
+var fs 					= require('fs');
 var browserify 	= require('browserify');
 var uglify 			= require('gulp-uglify');
 var buffer 			= require('vinyl-buffer');
@@ -119,6 +121,7 @@ gulp.task('sass:build', function () {
 	return gulp.src(paths.src + '/styles/[^_]*.scss')
 	.pipe(sass().on('error', styleErrorHandler))
 	.pipe(prefix(['last 15 versions', '> 1%', 'ie 8'], { cascade: true }))
+	.pipe(minifyCss({compatibility: 'ie8'}))
 	.pipe(gulp.dest('_site/assets/css'))
 	.pipe(gulp.dest('assets/css'));
 });
@@ -235,9 +238,10 @@ gulp.task('build:prep', ['clean'], function(cb) {
 gulp.task('build', ['revreplace']);
 
 gulp.task("revision", ['build:prep'], function(){
-  return gulp.src(["_site/assets/css/**/*.css", "_site/assets/js/**/*.js", "_site/assets/img/**/*", "_site/assets/fonts/**/*", "_site/assets/icons/**/*"], {base: "_site"})
+  return gulp.src(["_site/assets/css/**/*.css", "_site/assets/js/**/*.js", "_site/assets/img/**/*", "_site/assets/icons/**/*"], {base: "_site"})
     .pipe(rev())
     .pipe(gulp.dest("_site/"))
+		.pipe(rmOrig())
     .pipe(rev.manifest())
     .pipe(gulp.dest("assets/"))
 })
