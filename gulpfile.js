@@ -10,6 +10,7 @@ var imagemin		= require('gulp-imagemin');
 var pngquant		= require('imagemin-pngquant');
 var imageResize = require('gulp-image-resize');
 var rev 				= require('gulp-rev');
+var revReplace  = require("gulp-rev-replace");
 var browserify 	= require('browserify');
 var uglify 			= require('gulp-uglify');
 var buffer 			= require('vinyl-buffer');
@@ -67,7 +68,22 @@ function rmOrig() {
 };
 
 gulp.task('clean', function() {
-  return del(['_site/*']);
+  return del(['assets/*', '_site/*']);
+});
+
+gulp.task('vendor', () => {
+  return gulp.src(['src/scripts/vendor/**/*.js'])
+    .pipe(gulp.dest(paths.dest + '/js/vendor'));
+});
+
+gulp.task('fonts', () => {
+  return gulp.src([paths.src + '/fonts/**/*'])
+		.pipe(gulp.dest(paths.dest + '/fonts'));
+});
+
+gulp.task('icons', () => {
+  return gulp.src([paths.src + '/icons/**/*'])
+		.pipe(gulp.dest(paths.dest + '/icons'));
 });
 
 /**
@@ -110,7 +126,7 @@ gulp.task('sass:build', function () {
 /**
  * Build the Jekyll Site
  */
-gulp.task('jekyll:build', ['sass:build', 'scripts'], function (done) {
+gulp.task('jekyll:build', ['fonts', 'icons', 'images', 'srcset', 'sass:build', 'scripts', 'vendor'], function (done) {
 	browserSync.notify(messages.jekyllBuild);
 	cp.spawn('bundle', ['exec', 'jekyll', 'build', '--config', '_config.yml,config/_config_production.yml'], {stdio: 'inherit'})
 	.on('close', done);
@@ -151,7 +167,7 @@ gulp.task('srcset', (cb) => {
       { dir: 'retina', width: 2880, height: 1800, crop: false, filter: 'Catrom' },
       { dir: 'thumbnail', width: 260, crop: false, filter: 'Catrom' }
   ];
-  images.forEach( (type) => {
+  images.forEach( (type, i) => {
     var resize_settings = {
       width: type.width,
       crop: type.crop,
@@ -174,9 +190,13 @@ gulp.task('srcset', (cb) => {
     .pipe(chmod(664))
     .pipe(gulp.dest('_site/' + paths.dest+'/img/backgrounds/'+type.dir))
 		.pipe(browserSync.reload({stream: true}))
-    .pipe(gulp.dest(paths.dest+'/img/backgrounds/'+type.dir));
+    .pipe(gulp.dest(paths.dest+'/img/backgrounds/'+type.dir))
+		.on('end', function() {
+			if (i === images.length - 1) {
+				cb();
+			}
+		});
   });
-  cb();
 });
 
 /**
@@ -211,13 +231,21 @@ gulp.task('build:prep', ['clean'], function(cb) {
   runSequence = require('run-sequence').use(gulp);
   runSequence('jekyll:build', cb);
 });
-gulp.task('build', ['build:prep'], 
-  () => {
-    return gulp.src([paths.dest + 'styles/*.css', paths.dest + 'scripts/**/*.js'], {base: paths.dest})
-      .pipe(rev())
-      .pipe(gulp.dest(paths.dest))  // write rev'd assets to build dir
-      .pipe(rmOrig())
-      .pipe(rev.manifest())
-      .pipe(gulp.dest(paths.dest)); // write manifest to build dir
+
+gulp.task('build', ['revreplace']);
+
+gulp.task("revision", ['build:prep'], function(){
+  return gulp.src(["_site/assets/css/**/*.css", "_site/assets/js/**/*.js", "_site/assets/img/**/*", "_site/assets/fonts/**/*", "_site/assets/icons/**/*"], {base: "_site"})
+    .pipe(rev())
+    .pipe(gulp.dest("_site/"))
+    .pipe(rev.manifest())
+    .pipe(gulp.dest("assets/"))
+})
+
+gulp.task("revreplace", ["revision"], function(){
+  var manifest = gulp.src("assets/rev-manifest.json");
+  return gulp.src(["_site/**/*.html", "_site/assets/css/**/*.css"], {base: "_site"})
+    .pipe(revReplace({manifest: manifest}))
+    .pipe(gulp.dest("_site/"));
 });
 gulp.task('default', ['build']);

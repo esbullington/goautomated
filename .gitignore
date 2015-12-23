@@ -1,6 +1,6 @@
 .jekyll-metadata
 _drafts/
-php/vendor
+assets/
 node_modules
 _site
 .sass-cache
