@@ -92,6 +92,19 @@ gulp.task('icons', () => {
  * Compile js files using browserify
  */
 gulp.task('scripts', function() {
+  return browserify([paths.src + '/scripts/main.js'], {debug: true}).bundle()
+    .on('error', scriptErrorHandler)
+    .pipe(source('main.js'))
+    .pipe(buffer())
+		.pipe(gulp.dest('_site/assets/js'))
+		.pipe(browserSync.reload({stream:true}))
+		.pipe(gulp.dest('assets/js'));
+});
+
+/**
+ * Compile js files using browserify
+ */
+gulp.task('scripts:build', function() {
   return browserify([paths.src + '/scripts/main.js']).bundle()
     .on('error', scriptErrorHandler)
     .pipe(source('main.js'))
@@ -129,7 +142,7 @@ gulp.task('sass:build', function () {
 /**
  * Build the Jekyll Site
  */
-gulp.task('jekyll:build', ['fonts', 'icons', 'images', 'srcset', 'sass:build', 'scripts', 'vendor'], function (done) {
+gulp.task('jekyll:build', ['fonts', 'icons', 'images', 'srcset', 'sass:build', 'scripts:build', 'vendor'], function (done) {
 	browserSync.notify(messages.jekyllBuild);
 	cp.spawn('bundle', ['exec', 'jekyll', 'build', '--config', '_config.yml,config/_config_production.yml'], {stdio: 'inherit'})
 	.on('close', done);
@@ -205,7 +218,7 @@ gulp.task('srcset', (cb) => {
 /**
  * Wait for jekyll-build, then launch the Server
  */
-gulp.task('browser-sync', ['sass', 'scripts', 'images', 'srcset', 'jekyll:rebuild'], function() {
+gulp.task('browser-sync', ['vendor', 'fonts', 'icons', 'sass', 'scripts', 'images', 'srcset', 'jekyll:rebuild'], function() {
 	browserSync({
 		host: "eric-desktop.home.lan",
 		server: {
@@ -238,7 +251,7 @@ gulp.task('build:prep', ['clean'], function(cb) {
 gulp.task('build', ['revreplace']);
 
 gulp.task("revision", ['build:prep'], function(){
-  return gulp.src(["_site/assets/css/**/*.css", "_site/assets/js/**/*.js", "_site/assets/img/**/*", "_site/assets/icons/**/*"], {base: "_site"})
+  return gulp.src(["_site/assets/fonts/**/*", "_site/assets/css/**/*.css", "_site/assets/js/**/*.js", "_site/assets/img/**/*", "_site/assets/icons/**/*"], {base: "_site"})
     .pipe(rev())
     .pipe(gulp.dest("_site/"))
 		.pipe(rmOrig())
@@ -248,7 +261,7 @@ gulp.task("revision", ['build:prep'], function(){
 
 gulp.task("revreplace", ["revision"], function(){
   var manifest = gulp.src("assets/rev-manifest.json");
-  return gulp.src(["_site/**/*.html", "_site/assets/css/**/*.css"], {base: "_site"})
+  return gulp.src(["_site/**/*.html", "_site/assets/css/*.css"], {base: "_site"})
     .pipe(revReplace({manifest: manifest}))
     .pipe(gulp.dest("_site/"));
 });
