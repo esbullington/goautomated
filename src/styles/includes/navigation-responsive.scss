@@ -40,15 +40,24 @@
 		}
 		img {
 			float: left;
-			margin: 30px 12px 0 0;
+			margin: 33px 16px 0 0;
 		}
 		h1 {
 			float: left;
 			height: 100%;
 			width: 50%;
 			font-size: 120%;
-			margin: 1em 0 0 0;
-			padding: 0;
+			a {
+				float: left;
+				margin: 33px 0 0 0;
+				padding: 0;
+			}
 		}
+	}
+	.navigation-menu li:not(:last-child) {
+		margin-bottom: 10px;
+	}
+	.social-media-menu li {
+		margin-left: 10px;
 	}
 }

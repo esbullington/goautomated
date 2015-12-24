@@ -9,8 +9,8 @@ body {
 
 main.default {
 	min-height: 50vh;
-	// overflow: auto;
-	@include clearfix();
+	overflow: auto;
+	// @include clearfix();
 	.inner-wrapper, .frontpage-inner-wrapper {
 		@extend %outer-container;
 	}

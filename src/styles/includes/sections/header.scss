@@ -27,3 +27,18 @@
 		// cursor: pointer;
 	}
 }
+
+@include media(max-width $medium-screen - 1) {
+	.section-header {
+		header {
+			margin: 40px 0;
+			text-align: center;
+			h1 {
+				font-size: 260%;
+			}
+			p, span {
+				font-size: 120%;
+			}
+		}
+	}
+}

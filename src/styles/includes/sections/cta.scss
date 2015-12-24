@@ -5,25 +5,25 @@
 
 .section-cta {
 	.frontpage-inner-wrapper {
-		height: 92px;
+		display: flex;
 	}
 	div {
 		margin: 0;
-		h2 {
-			font-size: 200%;
-			margin: 0 0 0.1em 0;
-		}
+	}
+	h2 {
+		font-size: 200%;
+		margin: 0 0 0.1em 0;
 	}
 	background-color: $brand;
 	padding: 1em 0;
 	.cta-container {
-		@include span-columns(8 of 12);
+		flex: 2;
+
 	}
 	button {
-		@include span-columns(4 of 12);
-		display: inline-block;
+		flex: 1;
+		margin: auto;
 		height: 42px;
-		@extend %vertical-align;
 		border: 1px solid $white;
 		a {
 			display: block;
@@ -32,6 +32,23 @@
 			color: $white;
 			height: 100%;
 			width: 100%;
+		}
+	}
+}
+
+@include media(max-width $medium-screen - 1) {
+	.section-cta {
+		.cta-container {
+			margin-right: 12px;
+		}
+		.cta-description {
+			text-align: justify;
+		}
+		h2 {
+			font-size: 140%;
+		}
+		button {
+			padding: 0.75em 0;
 		}
 	}
 }
