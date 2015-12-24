@@ -1,6 +1,6 @@
 
 .section-header {
-	background-image: url('../../assets/img/backgrounds/retina/blueprint.jpg');
+	background-image: url('../img/backgrounds/retina/blueprint.jpg');
 	// min-height: calc(100vh - 60px);
 	color: $white;
 	p {
@@ -25,20 +25,5 @@
 		// border: 2px solid $white;
 		// padding: 10px;
 		// cursor: pointer;
-	}
-}
-
-@include media(max-width $medium-screen - 1) {
-	.section-header {
-		header {
-			margin: 40px 0;
-			text-align: center;
-			h1 {
-				font-size: 220%;
-			}
-			p, span {
-				font-size: 140%;
-			}
-		}
 	}
 }

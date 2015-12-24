@@ -5,8 +5,7 @@
 
 .section-cta {
 	.frontpage-inner-wrapper {
-		display: flex;
-		flex-direction: row;
+		height: 92px;
 	}
 	div {
 		margin: 0;
@@ -18,14 +17,13 @@
 	background-color: $brand;
 	padding: 1em 0;
 	.cta-container {
-		flex: 2;
-		margin: auto;
-		padding-right: 10px;
+		@include span-columns(8 of 12);
 	}
 	button {
-		flex: 1;
-		margin: auto;
+		@include span-columns(4 of 12);
+		display: inline-block;
 		height: 42px;
+		@extend %vertical-align;
 		border: 1px solid $white;
 		a {
 			display: block;
@@ -34,14 +32,6 @@
 			color: $white;
 			height: 100%;
 			width: 100%;
-		}
-	}
-}
-
-@include media(max-width $medium-screen - 1) {
-	.section-cta {
-		button {
-			padding: 0.75em 1em;
 		}
 	}
 }
