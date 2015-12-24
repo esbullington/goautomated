@@ -38,3 +38,19 @@
 .contact-submit-button .icon {
 	margin-left: 6px;
 }
+
+.ion-loading-a {
+  @extend .ion;
+  @extend .ion-spin;
+}
+
+.ion-loading-a {
+  -webkit-animation-timing-function: steps(8, start);
+  -moz-animation-timing-function: steps(8, start);
+  animation-timing-function: steps(8, start);
+}
+
+.ion-loading-a:before { 
+	font-family: 'Ionicons';
+	content: $ionicon-var-load-a;
+}
