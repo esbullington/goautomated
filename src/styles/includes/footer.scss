@@ -57,3 +57,11 @@
     text-align: center;
   }
 }
+
+@include media(max-width $medium-screen - 1) {
+	.footer {
+		dd, dt {
+			margin-bottom: 32px;
+		}
+	}
+}
