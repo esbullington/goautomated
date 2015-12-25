@@ -54,10 +54,15 @@
 			}
 		}
 	}
-	.navigation-menu li:not(:last-child) {
-		margin-bottom: 10px;
+	.navigation-menu li {
+		margin-bottom: 32px;
+		font-size: 140%;
+	}
+	.social-media-menu {
+		margin-top: 32px;
+		margin-bottom: 49px;
 	}
 	.social-media-menu li {
-		margin-left: 10px;
+		margin-left: 32px;
 	}
 }

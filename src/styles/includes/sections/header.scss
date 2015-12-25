@@ -1,6 +1,9 @@
 
 .section-header {
-	background-image: url('../img/backgrounds/retina/blueprint.jpg');
+	background-image: url('../../assets/img/backgrounds/default/blueprint.jpg');
+	@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) { 
+		background-image: url('../../assets/img/backgrounds/retina/blueprint.jpg');
+	}
 	// min-height: calc(100vh - 60px);
 	color: $white;
 	p {

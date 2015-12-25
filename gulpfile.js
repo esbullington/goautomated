@@ -9,6 +9,7 @@ var imagemin		= require('gulp-imagemin');
 var imagemin		= require('gulp-imagemin');
 var pngquant		= require('imagemin-pngquant');
 var imageResize = require('gulp-image-resize');
+var jpgCompress = require('imagemin-jpeg-recompress');
 var minifyCss   = require('gulp-minify-css');
 var rev 				= require('gulp-rev');
 var revReplace  = require("gulp-rev-replace");
@@ -200,7 +201,8 @@ gulp.task('srcset', (cb) => {
     .pipe(imagemin({
         progressive: true,
         // set this if you are using svg images
-        svgoPlugins: [{removeViewBox: false}]
+        svgoPlugins: [{removeViewBox: false}],
+				use: [jpgCompress({progressive: false, target: 0.8, loops: 3, quality: 'medium'})]
         // use: [pngquant()]
     }))
     .pipe(chmod(664))
@@ -208,7 +210,7 @@ gulp.task('srcset', (cb) => {
 		.pipe(browserSync.reload({stream: true}))
     .pipe(gulp.dest(paths.dest+'/img/backgrounds/'+type.dir))
 		.on('end', function() {
-			if (i === images.length - 1) {
+			if (i === 0) {
 				cb();
 			}
 		});

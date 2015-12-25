@@ -50,7 +50,7 @@
   animation-timing-function: steps(8, start);
 }
 
-.ion-loading-a:before { 
+.ion-load-a:before, .ion-loading-a:before { 
 	font-family: 'Ionicons';
 	content: $ionicon-var-load-a;
 }
