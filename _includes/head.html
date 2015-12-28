@@ -53,5 +53,18 @@
 	})(window,document,'script',"{{ site.url }}/assets/js/vendor/secondary.js",'ga');
 
   ga('create', 'UA-71724475-1', 'auto');
-  ga('send', 'pageview');
+
+	ga(function(tracker) {
+
+		tracker.set('sendHitTask', function(model) {
+			var payLoad = model.get('hitPayload');
+			var gifRequest = new XMLHttpRequest();
+			var gifPath = "{{ site.url }}/collect/";
+			gifRequest.open('get', gifPath + '?' + payLoad, true);
+			gifRequest.send();
+		});
+	});
+
+	ga('send', 'pageview');  
+
 </script>
