@@ -1,2 +1,62 @@
 # Serving
 url: "https://www.goautomated.biz"
+
+# Where things are
+source:      .
+destination: ./_site
+plugins_dir:     ./_plugins
+data_source_dir: ./_data
+
+# Handling Reading
+safe:         false
+include: ['.htaccess', '_pages']
+exclude:      ['package.json', 'gulpfile.js', 'node_modules', 'src', '.git', 'Gemfile', 'Gemfile.lock', 'LICENSE']
+keep_files:   [".git"]
+encoding:     "utf-8"
+markdown_ext: "markdown,md"
+
+# Filtering Content
+show_drafts: null
+limit_posts: 0
+future:      true
+unpublished: false
+
+# Plugins
+whitelist: []
+gems:  [jekyll-paginate]
+
+# Conversion
+markdown:    kramdown
+lsi:         false
+excerpt_separator: "\n\n"
+
+# Outputting
+permalink:     /:year/:month/:day/:title/
+paginate: 5
+paginate_path: /blog/page:num
+timezone:      null
+
+kramdown:
+  auto_ids:       true
+  footnote_nr:    1
+  entity_output:  as_char
+  toc_levels:     1..6
+  smart_quotes:   lsquo,rsquo,ldquo,rdquo
+  enable_coderay: false
+  autolink:       true
+  parse_block_html: true
+
+defaults:
+  -
+    scope:
+      path: ""
+      type: "posts"
+    values:
+      is_post: true
+  -
+    scope:
+      #path: ["_pages", "blog"]
+      path: ""
+      type: "pages" # previously `page` in Jekyll 2.2.
+    values:
+      is_page: true

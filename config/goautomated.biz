@@ -16,74 +16,72 @@
 
 server {
 
-	listen 80;
-	listen [::]:80;
+        listen 80;
+        listen [::]:80;
 
-	server_name www.goautomated.biz goautomated.biz;
-
-	location / {
-		return 301 https://www.goautomated.biz$request_uri;
-	}
-
-	location /.well-known/acme-challenge/ {
+        location ~ /.well-known {
 		root /var/www/goautomated.biz;
-		access_log      on;
-		log_not_found   on;
-	}
+                allow all;
+        }
+
+        server_name www.goautomated.biz goautomated.biz;
+
+        return 301 https://www.goautomated.biz$request_uri;
 }
 
 server {
-	listen 443 ssl spdy;
-	listen [::]:443 ssl spdy;
+        listen 443 ssl http2;
+        listen [::]:443 ssl http2;
 
-	server_name goautomated.biz;
+        server_name goautomated.biz;
 
-	# add ssl settings
+        # add ssl settings
+        ssl_certificate_key /etc/letsencrypt/live/goautomated.biz/privkey.pem;
 	ssl_certificate /etc/letsencrypt/live/goautomated.biz/fullchain.pem;
-	ssl_certificate_key /etc/letsencrypt/live/goautomated.biz/privkey.pem;
+	include snippets/ssl-params.conf;
 
-	return 301 https://www.goautomated.biz$request_uri;
+        location ~ /.well-known {
+		root /var/www/ericbullington.com;
+                allow all;
+        }
+
+        return 301 https://www.goautomated.biz$request_uri;
 }
 
 server {
 
-	# SSL configuration
-	#
-	listen 443 ssl spdy;
-	listen [::]:443 ssl spdy;
-
-	access_log /var/log/nginx/goautomated.biz/access.log;
-	error_log /var/log/nginx/goautomated.biz/error.log;
-
+        # SSL configuration
+        #
+        listen 443 ssl http2;
+        listen [::]:443 ssl http2;
+        #
+        # Note: You should disable gzip for SSL traffic.
+        # See: https://bugs.debian.org/773332
+        #
+        # Read up on ssl_ciphers to ensure a secure configuration.
+        # See: https://bugs.debian.org/765782
+        ssl_certificate_key /etc/letsencrypt/live/goautomated.biz/privkey.pem;
 	ssl_certificate /etc/letsencrypt/live/goautomated.biz/fullchain.pem;
-	ssl_certificate_key /etc/letsencrypt/live/goautomated.biz/privkey.pem;
+	include snippets/ssl-params.conf;
 
-	root /var/www/goautomated.biz;
+        root /var/www/goautomated.biz;
 
-	index index.html index.htm;
+        index index.html index.htm;
 
-	server_name www.goautomated.biz;
- 
-	location ~* \.(?:ico|css|js|gif|jpe?g|png)$ {
-		expires max;
-		add_header Vary Accept-Encoding;
-		access_log off;
-	}
+        server_name www.goautomated.biz;
 
-	location ~* \.(?:eot|woff|woff2|ttf|svg)$ {
-		expires 10d;
-		add_header Vary Accept-Encoding;
-		access_log off;
-	}
+        location / {
+                # First attempt to serve request as file, then
+                # as directory, then fall back to displaying a 404.
+                try_files $uri $uri/ =404;
+        }
 
-	location / {
-		# First attempt to serve request as file, then
-		# as directory, then fall back to displaying a 404.
-		try_files $uri $uri/ =404;
-	}
+        location ~ /.well-known {
+                allow all;
+        }
 
-	# deny access to dot files
-	location ~ /\. {
-		deny all;
-	}
+        # deny access to dot files
+        location ~ /\. {
+                deny all;
+        }
 }
