@@ -1,1 +1,1 @@
-# Palmetto Themes website
+# Goautomated.biz website
