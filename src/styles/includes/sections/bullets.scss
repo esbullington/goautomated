@@ -33,7 +33,7 @@
     @include span-columns(4 of 12);
 		position: relative;
 		background: $white;
-		border: 1px solid darken($light-gray, 10);
+		border: 1px solid #999999;
 		@include media(max-width $medium-screen) {
 			@include span-columns(12 of 12);
 		}
