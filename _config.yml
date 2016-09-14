@@ -7,7 +7,7 @@ data_source_dir: ./_data
 # Handling Reading
 safe:         false
 include: ['.htaccess', '_pages']
-exclude:      ['package.json', 'gulpfile.js', 'node_modules', 'src', '.git', 'Gemfile', 'Gemfile.lock', 'LICENSE']
+exclude:      ['Makefile', 'package.json', 'gulpfile.js', 'node_modules', 'src', '.git', 'Gemfile', 'Gemfile.lock', 'LICENSE']
 keep_files:   [".git"]
 encoding:     "utf-8"
 markdown_ext: "markdown,md"
