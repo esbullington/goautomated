@@ -1,18 +1,21 @@
 
 .section-intro {
-	.frontpage-inner-wrapper {
-		text-align: center;
-	}
-	h2 {
-		margin-bottom: 10px;
-	}
-	p {
-		display: inline-block;
-		color: $medium-gray;
-		width: 80%;
-	}
-	margin-bottom: 3em;
-	img {
-		margin-bottom: 2em;
-	}
+  .frontpage-inner-wrapper {
+    text-align: center;
+  }
+  .frontpage-inner-wrapper > p {
+    text-align: left;
+  }
+  h2 {
+    margin-bottom: 10px;
+  }
+  p {
+    display: inline-block;
+    color: $medium-gray;
+    width: 80%;
+  }
+  margin-bottom: 3em;
+  img {
+    margin-bottom: 2em;
+  }
 }
