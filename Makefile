@@ -5,11 +5,11 @@ SITE=goautomated.biz
 .PHONY: build watch
 
 build:
-	gulp build
+	./node_modules/.bin/gulp build
 
 
 watch:
-	gulp watch
+	./node_modules/.bin/gulp watch
 
 
 deploy:
